@@ -50,8 +50,13 @@ const App = () => {
         return response.json()
       })
       .then((responseJson) => {
-        console.log(responseJson)
-        
+        console.log(responseJson);
+
+        setUsers((users) => {
+          let userFound = users.find((user) => user.id === 5);
+          userFound = Object.assign(userFound, responseJson);
+          return [...users]
+        })
       })
   }
 
